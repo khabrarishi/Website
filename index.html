@@ -3,7 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vanshika's – Taste of Tradition</title>
+<title>Vanshika's – Taste of Tradition | Homemade Modak & Sweets in Pune</title>
+<meta name="description" content="Order fresh homemade modaks in Pune. Vanshika's – Taste of Tradition offers authentic ukadiche modak, sweets & festive gifting boxes.">
+<meta name="keywords" content="modak Pune, ukadiche modak, homemade sweets Pune, Ganesh Chaturthi modak, mithai Pune, sweet gift boxes Pune, Vanshika's Taste of Tradition">
+<meta property="og:title" content="Vanshika's – Taste of Tradition | Homemade Modak & Sweets in Pune">
+<meta property="og:description" content="Order fresh homemade modaks in Pune. Authentic ukadiche modak, sweets & festive gifting boxes.">
+<meta property="og:url" content="https://khabrarishi.github.io/Website/">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -21,6 +27,7 @@
     --text-muted: #7A5C3A;
     --border: rgba(184,135,58,0.2);
     --border-strong: rgba(184,135,58,0.4);
+    --whatsapp: #25D366;
   }
 
   html { scroll-behavior: smooth; }
@@ -36,24 +43,48 @@
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 5%;
+    padding: 1rem 5%;
     background: rgba(250,247,242,0.92);
     backdrop-filter: blur(12px);
     border-bottom: 0.5px solid var(--border);
+    gap: 1rem;
   }
   .nav-logo {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.4rem; font-weight: 500; letter-spacing: 0.04em;
-    color: var(--deep-brown); text-decoration: none;
+    color: var(--deep-brown); text-decoration: none; flex-shrink: 0;
   }
   .nav-logo span { color: var(--gold); }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
     font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--text-muted); text-decoration: none; font-weight: 400;
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--gold); }
+  .nav-right { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+  .nav-social { display: flex; gap: 0.6rem; }
+  .nav-social a {
+    width: 30px; height: 30px; border: 0.5px solid var(--border-strong);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-muted); text-decoration: none; font-size: 0.75rem;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .nav-social a:hover { color: var(--gold); border-color: var(--gold); }
+  .nav-order-btn {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.55rem 1.2rem;
+    background: var(--whatsapp);
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; font-weight: 500;
+    border-radius: 2px;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+  .nav-order-btn:hover { opacity: 0.88; }
+  .nav-order-btn svg { width: 14px; height: 14px; fill: #fff; flex-shrink: 0; }
 
   /* HERO */
   .hero {
@@ -88,6 +119,16 @@
   .hero-eyebrow::before, .hero-eyebrow::after {
     content: ''; display: block; width: 40px; height: 0.5px; background: var(--gold-light); opacity: 0.5;
   }
+  .hero-fresh-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    margin-bottom: 1.2rem;
+    padding: 0.4rem 1rem;
+    border: 0.5px solid rgba(184,135,58,0.35);
+    background: rgba(184,135,58,0.08);
+    font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold-muted); font-weight: 400;
+    border-radius: 2px;
+  }
   .hero h1 {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(3.5rem, 8vw, 6.5rem);
@@ -109,13 +150,16 @@
   .hero-meta {
     display: flex; gap: 2.5rem; justify-content: center;
     font-size: 0.78rem; letter-spacing: 0.08em; color: rgba(255,249,242,0.4);
-    text-transform: uppercase;
+    text-transform: uppercase; flex-wrap: wrap;
   }
   .hero-meta span { display: flex; align-items: center; gap: 0.5rem; }
   .hero-meta strong { color: rgba(255,249,242,0.75); font-weight: 400; }
+  .hero-buttons {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    margin-top: 3rem;
+  }
   .hero-cta {
     display: inline-flex; align-items: center; gap: 0.6rem;
-    margin-top: 3rem;
     padding: 0.9rem 2.4rem;
     border: 0.5px solid var(--gold);
     color: var(--gold-muted);
@@ -125,6 +169,18 @@
     transition: background 0.25s, color 0.25s;
   }
   .hero-cta:hover { background: var(--gold); color: var(--deep-brown); }
+  .hero-order-btn {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.9rem 2.4rem;
+    background: var(--whatsapp);
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+    text-decoration: none; font-weight: 500;
+    transition: opacity 0.25s;
+  }
+  .hero-order-btn:hover { opacity: 0.88; }
+  .hero-order-btn svg { width: 16px; height: 16px; fill: #fff; }
   .scroll-indicator {
     position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
@@ -205,9 +261,7 @@
     transition: transform 0.3s;
   }
   .product-card:hover::before { transform: scaleX(1); }
-  .product-icon {
-    font-size: 2rem; margin-bottom: 1.2rem; display: block;
-  }
+  .product-icon { font-size: 2rem; margin-bottom: 1.2rem; display: block; }
   .product-name {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.4rem; font-weight: 500; color: var(--deep-brown);
@@ -250,8 +304,7 @@
   .review-quote {
     position: absolute; top: 1.5rem; right: 1.8rem;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 4rem; color: rgba(184,135,58,0.1); line-height: 1;
-    font-weight: 600;
+    font-size: 4rem; color: rgba(184,135,58,0.1); line-height: 1; font-weight: 600;
   }
 
   /* CONTACT & HOURS */
@@ -265,15 +318,12 @@
     font-size: 1.5rem; font-weight: 400; color: var(--deep-brown);
     margin-bottom: 1.5rem;
   }
-  .info-row {
-    display: flex; gap: 1rem; margin-bottom: 1.2rem; align-items: flex-start;
-  }
+  .info-row { display: flex; gap: 1rem; margin-bottom: 1.2rem; align-items: flex-start; }
   .info-icon {
     width: 36px; height: 36px;
     border: 0.5px solid var(--border-strong);
     display: flex; align-items: center; justify-content: center;
-    font-size: 0.9rem; flex-shrink: 0; margin-top: 1px;
-    color: var(--gold);
+    font-size: 0.9rem; flex-shrink: 0; margin-top: 1px; color: var(--gold);
   }
   .info-label {
     font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
@@ -284,8 +334,7 @@
   .hours-grid { border-top: 0.5px solid var(--border); }
   .hours-row {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 0.7rem 0; border-bottom: 0.5px solid var(--border);
-    font-size: 0.88rem;
+    padding: 0.7rem 0; border-bottom: 0.5px solid var(--border); font-size: 0.88rem;
   }
   .hours-day { color: var(--text-muted); font-weight: 300; }
   .hours-time { color: var(--text-body); font-weight: 400; }
@@ -297,42 +346,103 @@
 
   /* MAP */
   .map-section { padding: 0; }
-  .map-section iframe {
-    width: 100%; height: 420px; border: none; display: block;
-    filter: sepia(20%) contrast(0.95);
-  }
+  .map-section iframe { width: 100%; height: 420px; border: none; display: block; filter: sepia(20%) contrast(0.95); }
 
   /* FOOTER */
   footer {
-    background: var(--deep-brown); padding: 3rem 5%;
+    background: var(--deep-brown); padding: 2.5rem 5%;
+  }
+  .footer-top {
     display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 1.5rem;
+    flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem; border-bottom: 0.5px solid rgba(184,135,58,0.15);
   }
   .footer-logo {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.2rem; font-weight: 400; color: var(--warm-white);
   }
   .footer-logo span { color: var(--gold); }
-  .footer-text {
-    font-size: 0.75rem; color: rgba(255,249,242,0.35);
-    letter-spacing: 0.05em;
+  .footer-social { display: flex; gap: 0.8rem; align-items: center; }
+  .footer-social a {
+    width: 34px; height: 34px;
+    border: 0.5px solid rgba(184,135,58,0.3);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,249,242,0.5); text-decoration: none; font-size: 0.8rem;
+    transition: color 0.2s, border-color 0.2s;
   }
-  .footer-phone {
-    font-size: 0.88rem; color: var(--gold);
-    font-family: 'Cormorant Garamond', serif;
-    letter-spacing: 0.05em;
+  .footer-social a:hover { color: var(--gold); border-color: var(--gold); }
+  .footer-social a svg { width: 15px; height: 15px; fill: currentColor; }
+  .footer-bottom {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    align-items: center;
   }
+  .footer-text { font-size: 0.75rem; color: rgba(255,249,242,0.3); letter-spacing: 0.05em; }
+  .footer-phone { font-size: 0.88rem; color: var(--gold); font-family: 'Cormorant Garamond', serif; letter-spacing: 0.05em; }
 
-  /* FADE-IN ANIMATION */
-  .fade-up {
-    opacity: 0; transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
+  /* FADE-IN */
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* BURGER */
+  .burger {
+    display: none; flex-direction: column; justify-content: center; gap: 5px;
+    width: 36px; height: 36px; cursor: pointer; background: none; border: none;
+    padding: 4px; flex-shrink: 0;
+  }
+  .burger span {
+    display: block; width: 22px; height: 1.5px;
+    background: var(--deep-brown); transition: transform 0.3s, opacity 0.3s;
+    transform-origin: center;
+  }
+  .burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .burger.open span:nth-child(2) { opacity: 0; }
+  .burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* MOBILE NAV OVERLAY */
+  .mobile-nav {
+    display: none; position: fixed; inset: 0; z-index: 99;
+    background: var(--cream); flex-direction: column;
+    align-items: center; justify-content: center; gap: 0;
+    padding-top: 80px;
+  }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 400;
+    color: var(--deep-brown); text-decoration: none;
+    padding: 1rem 2rem; letter-spacing: 0.02em;
+    border-bottom: 0.5px solid var(--border);
+    width: 100%; text-align: center;
+    transition: color 0.2s;
+  }
+  .mobile-nav a:hover { color: var(--gold); }
+  .mobile-nav a:first-child { border-top: 0.5px solid var(--border); }
+  .mobile-nav-order {
+    margin-top: 2rem;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.9rem 2.2rem;
+    background: var(--whatsapp); color: #fff;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; font-weight: 500; border-radius: 2px;
+  }
+  .mobile-nav-social {
+    display: flex; gap: 1rem; margin-top: 1.5rem;
+  }
+  .mobile-nav-social a {
+    width: 38px; height: 38px; border: 0.5px solid var(--border-strong);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-muted); font-size: 0; padding: 0;
+    border-bottom: 0.5px solid var(--border-strong) !important;
+    width: 38px !important;
+  }
+  .mobile-nav-social a svg { width: 16px; height: 16px; fill: currentColor; }
 
   @media (max-width: 720px) {
     .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
     .nav-links { display: none; }
+    .nav-social { display: none; }
+    .burger { display: flex; }
     .hero-meta { flex-wrap: wrap; gap: 1rem; }
     .about-stats { grid-template-columns: 1fr 1fr; }
   }
@@ -340,8 +450,31 @@
 </head>
 <body>
 
+<!-- MOBILE NAV OVERLAY -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#specialties" onclick="closeMenu()">Specialties</a>
+  <a href="#reviews" onclick="closeMenu()">Reviews</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="https://wa.me/c/917385833988" target="_blank" class="mobile-nav-order">
+    <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:#fff;flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Order Now
+  </a>
+  <div class="mobile-nav-social">
+    <a href="https://www.instagram.com/vanshika.s_tot" target="_blank" style="width:38px;height:38px;border:0.5px solid var(--border-strong);display:flex;align-items:center;justify-content:center;color:var(--text-muted);">
+      <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+    <a href="https://www.facebook.com/share/1NkmhoouSw/" target="_blank" style="width:38px;height:38px;border:0.5px solid var(--border-strong);display:flex;align-items:center;justify-content:center;color:var(--text-muted);">
+      <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+  </div>
+</div>
+
 <!-- NAV -->
 <nav>
+  <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <a href="#" class="nav-logo">Vanshika's <span>-</span> Taste of Tradition</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -349,6 +482,20 @@
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <div class="nav-right">
+    <div class="nav-social">
+      <a href="https://www.instagram.com/vanshika.s_tot" target="_blank" title="Instagram">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/share/1NkmhoouSw/" target="_blank" title="Facebook">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+    </div>
+    <a href="https://wa.me/c/917385833988" target="_blank" class="nav-order-btn">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Order Now
+    </a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -357,6 +504,7 @@
   <div class="hero-ornament"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Pune, Maharashtra</div>
+    <div class="hero-fresh-badge">🔥 Freshly Made Daily</div>
     <h1>Vanshika's<br><em>Taste of Tradition</em></h1>
     <p class="hero-tagline">Handcrafted sweets & delicacies, made with care</p>
     <div class="hero-divider"></div>
@@ -365,7 +513,13 @@
       <span>📍 <strong>Pune</strong></span>
       <span>🕘 <strong>Open Daily</strong></span>
     </div>
-    <a href="#contact" class="hero-cta">Find Us → </a>
+    <div class="hero-buttons">
+      <a href="https://wa.me/c/917385833988" target="_blank" class="hero-order-btn">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Order Now
+      </a>
+      <a href="#contact" class="hero-cta">Find Us →</a>
+    </div>
   </div>
   <div class="scroll-indicator">
     <div class="scroll-line"></div>
@@ -423,7 +577,7 @@
   <div class="products-grid">
     <div class="product-card">
       <span class="product-icon">🍡</span>
-      <div class="product-name">Ukadiche/Steamed Modak</div>
+      <div class="product-name">Ukadiche / Steamed Modak</div>
       <p class="product-desc">Steamed rice flour dumplings filled with a rich coconut & jaggery mixture — our signature creation, crafted to perfection for Ganesh Chaturthi and beyond.</p>
       <span class="product-badge">Signature</span>
     </div>
@@ -502,6 +656,13 @@
         </div>
       </div>
       <div class="info-row">
+        <div class="info-icon">💬</div>
+        <div>
+          <div class="info-label">WhatsApp Orders</div>
+          <div class="info-value"><a href="https://wa.me/c/917385833988" target="_blank">Order via WhatsApp →</a></div>
+        </div>
+      </div>
+      <div class="info-row">
         <div class="info-icon">📍</div>
         <div>
           <div class="info-label">Google Maps</div>
@@ -512,34 +673,13 @@
     <div class="contact-block">
       <h3>Opening Hours</h3>
       <div class="hours-grid">
-        <div class="hours-row">
-          <span class="hours-day">Monday</span>
-          <span class="hours-time">9:00 AM – 9:00 PM</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Tuesday</span>
-          <span class="hours-time">9:00 AM – 9:00 PM</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Wednesday</span>
-          <span class="hours-time">9:00 AM – 9:00 PM</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Thursday</span>
-          <span class="hours-time">9:00 AM – 9:00 PM</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Friday</span>
-          <span class="hours-time">9:00 AM – 9:00 PM</span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Saturday</span>
-          <span class="hours-time">9:00 AM – 9:00 PM <span class="hours-badge">Open</span></span>
-        </div>
-        <div class="hours-row">
-          <span class="hours-day">Sunday</span>
-          <span class="hours-time">9:00 AM – 9:00 PM <span class="hours-badge">Open</span></span>
-        </div>
+        <div class="hours-row"><span class="hours-day">Monday</span><span class="hours-time">9:00 AM – 9:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Tuesday</span><span class="hours-time">9:00 AM – 9:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Wednesday</span><span class="hours-time">9:00 AM – 9:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Thursday</span><span class="hours-time">9:00 AM – 9:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">9:00 AM – 9:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">9:00 AM – 9:00 PM <span class="hours-badge">Open</span></span></div>
+        <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">9:00 AM – 9:00 PM <span class="hours-badge">Open</span></span></div>
       </div>
     </div>
   </div>
@@ -556,9 +696,24 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Vanshika's <span>-</span> Taste of Tradition</div>
-  <div class="footer-text">© 2025 Vanshika's – Taste of Tradition. Pune.</div>
-  <div class="footer-phone">+91 7385 833 988</div>
+  <div class="footer-top">
+    <div class="footer-logo">Vanshika's <span>-</span> Taste of Tradition</div>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/vanshika.s_tot" target="_blank" title="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/share/1NkmhoouSw/" target="_blank" title="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="https://wa.me/c/917385833988" target="_blank" title="WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-text">© 2025 Vanshika's – Taste of Tradition. Pune.</div>
+    <div class="footer-phone">+91 7385 833 988</div>
+  </div>
 </footer>
 
 <script>
@@ -566,6 +721,19 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  function toggleMenu() {
+    const menu = document.getElementById('mobileNav');
+    const burger = document.getElementById('burger');
+    menu.classList.toggle('open');
+    burger.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  }
+  function closeMenu() {
+    document.getElementById('mobileNav').classList.remove('open');
+    document.getElementById('burger').classList.remove('open');
+    document.body.style.overflow = '';
+  }
 </script>
 </body>
 </html>
