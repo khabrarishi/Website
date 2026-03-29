@@ -1,512 +1,571 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Golden Dragon Restaurant - Best Asian Cuisine</title>
-    <meta name="description" content="Golden Dragon Restaurant - Authentic Asian cuisine with fresh ingredients. Visit us at our prime location!">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vanshika's – Taste of Tradition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+  :root {
+    --cream: #FAF7F2;
+    --warm-white: #FFF9F2;
+    --deep-brown: #2C1A0E;
+    --mid-brown: #5C3D20;
+    --gold: #B8873A;
+    --gold-light: #D4A85A;
+    --gold-muted: #E8C87A;
+    --text-body: #3D2B1A;
+    --text-muted: #7A5C3A;
+    --border: rgba(184,135,58,0.2);
+    --border-strong: rgba(184,135,58,0.4);
+  }
 
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+  html { scroll-behavior: smooth; }
 
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text-body);
+    overflow-x: hidden;
+  }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #1a1a1a;
-        }
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 5%;
+    background: rgba(250,247,242,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 500; letter-spacing: 0.04em;
+    color: var(--deep-brown); text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-muted); text-decoration: none; font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+    background: var(--deep-brown);
+    padding: 8rem 5% 5rem;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 60% 40%, #3D2008 0%, #1A0D04 60%, #0D0600 100%);
+  }
+  .hero-ornament {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 700px; height: 700px; border-radius: 50%;
+    border: 0.5px solid rgba(184,135,58,0.12);
+    pointer-events: none;
+  }
+  .hero-ornament::before {
+    content: ''; position: absolute; inset: 40px; border-radius: 50%;
+    border: 0.5px solid rgba(184,135,58,0.08);
+  }
+  .hero-content {
+    position: relative; text-align: center; max-width: 800px;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400; margin-bottom: 1.5rem;
+    display: flex; align-items: center; justify-content: center; gap: 1rem;
+  }
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: ''; display: block; width: 40px; height: 0.5px; background: var(--gold-light); opacity: 0.5;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    font-weight: 300; line-height: 1.05;
+    color: var(--warm-white);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.3rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold-muted); }
+  .hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 300; font-style: italic;
+    color: rgba(255,249,242,0.55); margin-bottom: 2.5rem; letter-spacing: 0.03em;
+  }
+  .hero-divider {
+    width: 60px; height: 1px; background: var(--gold); margin: 0 auto 2.5rem;
+    opacity: 0.6;
+  }
+  .hero-meta {
+    display: flex; gap: 2.5rem; justify-content: center;
+    font-size: 0.78rem; letter-spacing: 0.08em; color: rgba(255,249,242,0.4);
+    text-transform: uppercase;
+  }
+  .hero-meta span { display: flex; align-items: center; gap: 0.5rem; }
+  .hero-meta strong { color: rgba(255,249,242,0.75); font-weight: 400; }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    margin-top: 3rem;
+    padding: 0.9rem 2.4rem;
+    border: 0.5px solid var(--gold);
+    color: var(--gold-muted);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.25s, color 0.25s;
+  }
+  .hero-cta:hover { background: var(--gold); color: var(--deep-brown); }
+  .scroll-indicator {
+    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(255,249,242,0.25);
+  }
+  .scroll-line {
+    width: 0.5px; height: 50px; background: linear-gradient(to bottom, rgba(184,135,58,0.5), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse { 0%,100%{opacity:0.4;} 50%{opacity:1;} }
 
-        .nav-links a {
-            color: #1a1a1a;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+  /* SECTION WRAPPER */
+  section { padding: 7rem 5%; }
+  .section-header { text-align: center; margin-bottom: 4rem; }
+  .section-eyebrow {
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem; font-weight: 400;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3rem); font-weight: 400; line-height: 1.2;
+    color: var(--deep-brown); letter-spacing: -0.01em;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-rule {
+    width: 40px; height: 1px; background: var(--gold); opacity: 0.5;
+    margin: 1.5rem auto 0;
+  }
 
-        .nav-links a:hover {
-            color: #fff;
-        }
+  /* ABOUT */
+  .about { background: var(--warm-white); }
+  .about-inner {
+    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .about-text p {
+    font-size: 1.05rem; line-height: 1.85; color: var(--text-muted);
+    font-weight: 300; margin-bottom: 1.5rem;
+  }
+  .about-text p strong { color: var(--mid-brown); font-weight: 500; }
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  }
+  .stat-card {
+    padding: 1.8rem 1.5rem;
+    border: 0.5px solid var(--border-strong);
+    background: var(--cream);
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 300;
+    color: var(--gold); line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--text-muted); margin-top: 0.5rem; font-weight: 400;
+  }
 
-        .cta-button {
-            background: #e74c3c;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
+  /* SPECIALTIES */
+  .specialties { background: var(--cream); }
+  .products-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px;
+  }
+  .product-card {
+    background: var(--warm-white);
+    padding: 2.5rem 2rem;
+    border: 0.5px solid var(--border);
+    position: relative; overflow: hidden;
+    transition: transform 0.3s;
+  }
+  .product-card:hover { transform: translateY(-3px); }
+  .product-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--gold); transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .product-card:hover::before { transform: scaleX(1); }
+  .product-icon {
+    font-size: 2rem; margin-bottom: 1.2rem; display: block;
+  }
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 500; color: var(--deep-brown);
+    margin-bottom: 0.6rem;
+  }
+  .product-desc {
+    font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; font-weight: 300;
+  }
+  .product-badge {
+    display: inline-block; margin-top: 1.2rem;
+    padding: 0.3rem 0.8rem;
+    border: 0.5px solid var(--border-strong);
+    font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); font-weight: 400;
+  }
 
-        .cta-button:hover {
-            background: #c0392b;
-            transform: translateY(-2px);
-        }
+  /* REVIEWS */
+  .reviews { background: var(--deep-brown); padding: 7rem 5%; }
+  .reviews .section-title { color: var(--warm-white); }
+  .reviews-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;
+  }
+  .review-card {
+    padding: 2rem 1.8rem;
+    border: 0.5px solid rgba(184,135,58,0.2);
+    background: rgba(255,249,242,0.03);
+    position: relative;
+  }
+  .review-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+  .review-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem; font-style: italic; font-weight: 300;
+    color: rgba(255,249,242,0.75); line-height: 1.7; margin-bottom: 1.2rem;
+  }
+  .review-author {
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(184,135,58,0.7); font-weight: 400;
+  }
+  .review-quote {
+    position: absolute; top: 1.5rem; right: 1.8rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem; color: rgba(184,135,58,0.1); line-height: 1;
+    font-weight: 600;
+  }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23d4af37" width="1200" height="600"/><text x="50%" y="50%" font-size="48" fill="%23fff" text-anchor="middle" dy=".3em">Asian Cuisine Hero Image</text></svg>');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-top: 70px;
-        }
+  /* CONTACT & HOURS */
+  .contact-section { background: var(--warm-white); }
+  .contact-inner {
+    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+  }
+  .contact-block h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem; font-weight: 400; color: var(--deep-brown);
+    margin-bottom: 1.5rem;
+  }
+  .info-row {
+    display: flex; gap: 1rem; margin-bottom: 1.2rem; align-items: flex-start;
+  }
+  .info-icon {
+    width: 36px; height: 36px;
+    border: 0.5px solid var(--border-strong);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; flex-shrink: 0; margin-top: 1px;
+    color: var(--gold);
+  }
+  .info-label {
+    font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-muted); font-weight: 400; margin-bottom: 0.2rem;
+  }
+  .info-value { font-size: 0.95rem; color: var(--text-body); font-weight: 300; }
+  .info-value a { color: var(--gold); text-decoration: none; }
+  .hours-grid { border-top: 0.5px solid var(--border); }
+  .hours-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.7rem 0; border-bottom: 0.5px solid var(--border);
+    font-size: 0.88rem;
+  }
+  .hours-day { color: var(--text-muted); font-weight: 300; }
+  .hours-time { color: var(--text-body); font-weight: 400; }
+  .hours-badge {
+    display: inline-block; padding: 0.2rem 0.6rem;
+    background: rgba(184,135,58,0.12); color: var(--gold);
+    font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px;
+  }
 
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
+  /* MAP */
+  .map-section { padding: 0; }
+  .map-section iframe {
+    width: 100%; height: 420px; border: none; display: block;
+    filter: sepia(20%) contrast(0.95);
+  }
 
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.2s both;
-        }
+  /* FOOTER */
+  footer {
+    background: var(--deep-brown); padding: 3rem 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1.5rem;
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 400; color: var(--warm-white);
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-text {
+    font-size: 0.75rem; color: rgba(255,249,242,0.35);
+    letter-spacing: 0.05em;
+  }
+  .footer-phone {
+    font-size: 0.88rem; color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 0.05em;
+  }
 
-        /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+  /* FADE-IN ANIMATION */
+  .fade-up {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-        section {
-            padding: 5rem 0;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #d4af37;
-        }
-
-        /* About Section */
-        .about {
-            background: #f8f9fa;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            color: #666;
-        }
-
-        .about-image {
-            background: linear-gradient(45deg, #d4af37, #ffd700);
-            height: 400px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-        }
-
-        /* Location Section */
-        .location {
-            text-align: center;
-        }
-
-        .map-container {
-            height: 400px;
-            background: #e0e0e0;
-            border-radius: 20px;
-            overflow: hidden;
-            margin: 2rem auto;
-            max-width: 800px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .location-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .location-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .location-card i {
-            font-size: 2.5rem;
-            color: #d4af37;
-            margin-bottom: 1rem;
-        }
-
-        /* Menu Section */
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .menu-item {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .menu-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .menu-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-        }
-
-        .price {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #e74c3c;
-            margin: 1rem 0;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: #1a1a1a;
-            color: white;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact-form {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 15px;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: none;
-            border-radius: 10px;
-            background: rgba(255,255,255,0.9);
-            font-size: 1rem;
-        }
-
-        .submit-btn {
-            background: #d4af37;
-            color: #1a1a1a;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s;
-        }
-
-        .submit-btn:hover {
-            background: #ffd700;
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            nav {
-                padding: 0 1rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
-        }
-    </style>
+  @media (max-width: 720px) {
+    .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .nav-links { display: none; }
+    .hero-meta { flex-wrap: wrap; gap: 1rem; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">🍜 Golden Dragon</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#location">Location</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="#location" class="cta-button">Visit Us</a>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Golden Dragon Restaurant</h1>
-            <p>Authentic Asian Cuisine • Fresh Ingredients • Unforgettable Flavors</p>
-            <a href="#location" class="cta-button">Find Us on Map</a>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Vanshika's <span>&</span> Taste of Tradition</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#specialties">Specialties</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-ornament"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Pune, Maharashtra</div>
+    <h1>Vanshika's<br><em>Taste of Tradition</em></h1>
+    <p class="hero-tagline">Handcrafted sweets & delicacies, made with care</p>
+    <div class="hero-divider"></div>
+    <div class="hero-meta">
+      <span>⭐ <strong>5.0 Rating</strong></span>
+      <span>📍 <strong>Yewalewadi, Pune</strong></span>
+      <span>🕘 <strong>Open Daily</strong></span>
+    </div>
+    <a href="#contact" class="hero-cta">Find Us → </a>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about fade-up" id="about">
+  <div class="section-header">
+    <p class="section-eyebrow">Our Story</p>
+    <h2 class="section-title">A Labour of <em>Love</em></h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="about-inner">
+    <div class="about-text">
+      <p>
+        <strong>Vanshika's – Taste of Tradition</strong> is a boutique sweet & confectionery house nestled in the heart of Yewalewadi, Pune. We believe that every bite should tell a story — of heritage, care, and the finest natural ingredients.
+      </p>
+      <p>
+        Our journey began with a simple passion: reviving authentic Indian sweets made the way they were meant to be made. Each modak, each sweet, is prepared by hand with meticulous attention to hygiene, flavour, and presentation.
+      </p>
+      <p>
+        Whether you're celebrating a festival, gifting someone special, or simply treating yourself, we are here to make every moment sweeter.
+      </p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-card">
+        <div class="stat-num">5.0</div>
+        <div class="stat-label">Google Rating</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">29+</div>
+        <div class="stat-label">Happy Reviews</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Natural Ingredients</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Days a Week</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALTIES -->
+<section class="specialties fade-up" id="specialties">
+  <div class="section-header">
+    <p class="section-eyebrow">What We Offer</p>
+    <h2 class="section-title">Our <em>Specialties</em></h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="products-grid">
+    <div class="product-card">
+      <span class="product-icon">🍡</span>
+      <div class="product-name">Ukadiche Modak</div>
+      <p class="product-desc">Steamed rice flour dumplings filled with a rich coconut & jaggery mixture — our signature creation, crafted to perfection for Ganesh Chaturthi and beyond.</p>
+      <span class="product-badge">Signature</span>
+    </div>
+    <div class="product-card">
+      <span class="product-icon">🍬</span>
+      <div class="product-name">Artisan Sweets</div>
+      <p class="product-desc">A curated selection of traditional Indian mithai, made fresh daily using authentic recipes and premium ingredients — free from artificial colours and preservatives.</p>
+      <span class="product-badge">Daily Fresh</span>
+    </div>
+    <div class="product-card">
+      <span class="product-icon">🎁</span>
+      <div class="product-name">Gift Boxes</div>
+      <p class="product-desc">Beautifully packaged assortments of our finest sweets — perfect for festivals, weddings, corporate gifting, or any occasion that calls for something special.</p>
+      <span class="product-badge">Gifting</span>
+    </div>
+    <div class="product-card">
+      <span class="product-icon">🛍️</span>
+      <div class="product-name">Bulk & Custom Orders</div>
+      <p class="product-desc">Planning a celebration? We cater to large orders with personalised flavours and packaging. Contact us to discuss your requirements and we'll craft something memorable.</p>
+      <span class="product-badge">Custom</span>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews fade-up" id="reviews">
+  <div class="section-header">
+    <p class="section-eyebrow">What People Say</p>
+    <h2 class="section-title" style="color: var(--warm-white);">Voices of <em>Tradition</em></h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">The modaks were prepared with great care and hygiene. The taste was absolutely fabulous — perfectly balanced sweetness with authentic flavour in every bite.</p>
+      <div class="review-author">— Google Review</div>
+    </div>
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">Our guests were overwhelmed with the taste and the natural quality! Was told it is a recent start-up. All the best — keep it up!</p>
+      <div class="review-author">— Google Review</div>
+    </div>
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">The delicate rice flour dumplings wrapped around sweet coconut and jaggery filling were absolute perfection. It felt like a taste of tradition in every bite.</p>
+      <div class="review-author">— Google Review</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section fade-up" id="contact">
+  <div class="section-header">
+    <p class="section-eyebrow">Find Us</p>
+    <h2 class="section-title">Visit <em>Us</em></h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-block">
+      <h3>Get in Touch</h3>
+      <div class="info-row">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-label">Address</div>
+          <div class="info-value">Yewalewadi Rd, Kondhwa Budruk,<br>Yewalewadi, Pune – 411048, Maharashtra</div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Our Restaurant</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Established in 2010, Golden Dragon has been serving the community with authentic Asian cuisine made from the freshest ingredients. Our chefs bring decades of experience from across Asia to create dishes that will transport your taste buds.</p>
-                    <p>From traditional dim sum to spicy Szechuan specialties, we offer a menu that satisfies every palate. Join us for dine-in, takeout, or catering services.</p>
-                </div>
-                <div class="about-image">
-                    <i class="fas fa-utensils" style="font-size: 4rem;"></i>
-                    <div>Restaurant Interior</div>
-                </div>
-            </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📞</div>
+        <div>
+          <div class="info-label">Phone</div>
+          <div class="info-value"><a href="tel:+917385833988">+91 73858 33988</a></div>
         </div>
-    </section>
-
-    <!-- Menu Section -->
-    <section id="menu" class="menu-section">
-        <div class="container">
-            <h2>Featured Menu Items</h2>
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <div style="background: linear-gradient(45deg, #ff6b6b, #ffd93d); height: 200px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin-bottom: 1rem;">
-                        Kung Pao Chicken
-                    </div>
-                    <h3>Kung Pao Chicken</h3>
-                    <p class="price">$14.99</p>
-                    <p>Spicy chicken with peanuts, peppers, and vegetables in a savory sauce.</p>
-                </div>
-                <div class="menu-item">
-                    <div style="background: linear-gradient(45deg, #4ecdc4, #44a08d); height: 200px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin-bottom: 1rem;">
-                        Pad Thai
-                    </div>
-                    <h3>Pad Thai</h3>
-                    <p class="price">$12.99</p>
-                    <p>Classic Thai noodles with shrimp, egg, bean sprouts, and peanuts.</p>
-                </div>
-                <div class="menu-item">
-                    <div style="background: linear-gradient(45deg, #ff9ff3, #f368e0); height: 200px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; margin-bottom: 1rem;">
-                        Sushi Platter
-                    </div>
-                    <h3>Sushi Platter</h3>
-                    <p class="price">$24.99</p>
-                    <p>Fresh sushi rolls and sashimi selection for two people.</p>
-                </div>
-            </div>
+      </div>
+      <div class="info-row">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-label">Google Maps</div>
+          <div class="info-value"><a href="https://maps.app.goo.gl/2gfsvDJ4R9Evrg56A" target="_blank">View on Google Maps →</a></div>
         </div>
-    </section>
-
-    <!-- Location Section -->
-    <section id="location" class="location">
-        <div class="container">
-            <h2>Visit Us</h2>
-            <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.146057135308!2d-73.935242684686!3d40.730799979325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQzJzUwLjQiTiA3M8KwNTYnMTYuNyJX!5e0!3m2!1sen!2sus!4v1699123456789!5m2!1sen!2sus"
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
-            </div>
-            <div class="location-info">
-                <div class="location-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Address</h3>
-                    <p>123 Dragon Street<br>New York, NY 10001</p>
-                </div>
-                <div class="location-card">
-                    <i class="fas fa-clock"></i>
-                    <h3>Hours</h3>
-                    <p>Mon-Sat: 11AM - 10PM<br>Sun: 12PM - 9PM</p>
-                </div>
-                <div class="location-card">
-                    <i class="fas fa-phone"></i>
-                    <h3>Phone</h3>
-                    <p>(555) 123-4567</p>
-                </div>
-                <div class="location-card">
-                    <i class="fas fa-utensils"></i>
-                    <h3>Services</h3>
-                    <p>Dine-in • Takeout<br>Delivery • Catering</p>
-                </div>
-            </div>
+      </div>
+    </div>
+    <div class="contact-block">
+      <h3>Opening Hours</h3>
+      <div class="hours-grid">
+        <div class="hours-row">
+          <span class="hours-day">Monday</span>
+          <span class="hours-time">9:00 AM – 9:00 PM</span>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <div class="contact-content">
-                <div>
-                    <h3>Ready to Order?</h3>
-                    <p style="margin: 1rem 0 2rem 0; opacity: 0.9;">Call us or send us a message. We're here to serve you!</p>
-                    <div style="display: flex; gap: 1rem; margin-bottom: 1rem;">
-                        <a href="tel:+15551234567" style="color: #d4af37; font-size: 1.5rem;"><i class="fas fa-phone"></i></a>
-                        <a href="mailto:info@goldendragon.com" style="color: #d4af37; font-size: 1.5rem;"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" placeholder="Your Phone">
-                    </div>
-                    <div class="form-group">
-                        <textarea rows="5" placeholder="Your Message"></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
+        <div class="hours-row">
+          <span class="hours-day">Tuesday</span>
+          <span class="hours-time">9:00 AM – 9:00 PM</span>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Golden Dragon Restaurant. All rights reserved. | Made with <i class="fas fa-heart" style="color: #e74c3c;"></i> for great food.</p>
+        <div class="hours-row">
+          <span class="hours-day">Wednesday</span>
+          <span class="hours-time">9:00 AM – 9:00 PM</span>
         </div>
-    </footer>
+        <div class="hours-row">
+          <span class="hours-day">Thursday</span>
+          <span class="hours-time">9:00 AM – 9:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Friday</span>
+          <span class="hours-time">9:00 AM – 9:00 PM</span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Saturday</span>
+          <span class="hours-time">9:00 AM – 9:00 PM <span class="hours-badge">Open</span></span>
+        </div>
+        <div class="hours-row">
+          <span class="hours-day">Sunday</span>
+          <span class="hours-time">9:00 AM – 9:00 PM <span class="hours-badge">Open</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+<!-- MAP -->
+<div class="map-section">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d945.5!2d73.8922643!3d18.4342325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2eb03b8ba46ab%3A0xba1dfc0c07ec5f0c!2sVanshika's%20-%20Taste%20of%20Tradition!5e0!3m2!1sen!2sin!4v1700000000000"
+    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    title="Vanshika's location on map">
+  </iframe>
+</div>
 
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
-        });
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Vanshika's <span>&</span> Taste of Tradition</div>
+  <div class="footer-text">© 2025 Vanshika's – Taste of Tradition. Yewalewadi, Pune.</div>
+  <div class="footer-phone">+91 73858 33988</div>
+</footer>
 
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(212, 175, 55, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, #d4af37 0%, #ffd700 100%)';
-                header.style.backdropFilter = 'none';
-            }
-        });
-    </script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
